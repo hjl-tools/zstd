@@ -303,7 +303,8 @@ HUF_decompress4X1_usingDTable_internal_bmi2_asm_loop:
     movq 16(%rsp), %ip3
 
     /* Re-compute olimit */
-    jmp .L_4X1_compute_olimit
+    lea .L_4X1_compute_olimit(%rip), %rax
+    jmp *%rax
 
 #undef GET_NEXT_DELT
 #undef DECODE_FROM_DELT
@@ -535,7 +536,8 @@ HUF_decompress4X2_usingDTable_internal_bmi2_asm_loop:
 
     cmp %op3, 48(%rsp)
     ja .L_4X2_loop_body
-    jmp .L_4X2_compute_olimit
+    lea .L_4X2_compute_olimit(%rip), %rax
+    jmp *%rax
 
 #undef DECODE
 #undef RELOAD_BITS
