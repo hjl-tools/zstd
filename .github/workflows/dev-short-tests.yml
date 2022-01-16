@@ -407,7 +407,7 @@ jobs:
         echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
     - name: Run Under SDE
       run: |
-        sde-external-9.0.0-2021-11-07-lin/sde -tgl -cet-endbr-exe -cet-stderr -cet-abort -- ./zstd -b3
+        sde-external-9.0.0-2021-11-07-lin/sde -cet -cet-raise 0 -cet-endbr-exe -cet-stderr -cet-abort -- ./zstd -b3
 
 
 
